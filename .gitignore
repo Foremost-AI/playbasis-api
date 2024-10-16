@@ -1,6 +1,7 @@
 *.swp
 *.swo
 *.swm
+*.bak
 /.metadata/
 /*.project
 /*.suo
@@ -10,6 +11,7 @@
 /.httpd.conf
 
 # local config
+application/cache/version-api
 application/config/database.php
 application/config/config.php
 application/config/mongodb.php
