@@ -10,10 +10,8 @@ RUN apt-get update && apt-get install --yes --force-yes cron g++ gettext libicu-
 RUN docker-php-ext-install curl json && docker-php-ext-enable curl json
 RUN pecl install mongo && echo 'extension=mongo.so' | tee /usr/local/etc/php/conf.d/mongo.ini
 
-COPY docker/app/entrypoint.sh /entrypoint.sh
-COPY docker/app/config/php.ini /usr/local/etc/php/
+COPY scripts/php.ini /usr/local/etc/php/
 COPY . .
 
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./scripts/entrypoint.sh"]
 CMD ["php-fpm"]
